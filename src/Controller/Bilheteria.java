@@ -34,7 +34,7 @@ public class Bilheteria extends Thread {
 		}
 	}
 	public boolean Login() {
-		this.templogin = numeroalearorio(500, 2001);
+		this.templogin = aleatorio(500,2001);
 		
 		try {
 			sleep(this.templogin);
@@ -47,13 +47,19 @@ public class Bilheteria extends Thread {
 			return false;
 		}else {
 			System.out.println("O usuario " +idpessoa + " conseguiu fazer o logar após " + this.templogin +" ms");
-			this.quantingressos = numeroalearorio(1,5);
+			this.quantingressos = aleatorio(1,5);
 			return true;
 		}
 	}
 	
+	private int aleatorio(int min, int max) {
+		int aleatorio = min + (int)(Math.random()*(max -min));
+		return aleatorio;
+		
+	}
+
 	public boolean Compra() {
-		this.tempcompra = numeroalearorio(1000, 3001);
+		this.tempcompra = aleatorio(1000,301);
 		
 		try {
 			sleep(this.tempcompra);
@@ -81,17 +87,9 @@ public class Bilheteria extends Thread {
 			
 			
 		}
-	}
-	
-	public int numeroalearorio(int min, int max) {
-		Integer numeroaleatorio = min + (int)(Math.random() * (max - min));
-		return numeroaleatorio;
-		
-	}
+	} 
 	
 	
-	
-
 }
 	
 	
